@@ -7,8 +7,8 @@ public class Menu extends javax.swing.JFrame {
 
     Usuario us = new Usuario();
     Clase cl = new Clase();
-    String validacion = "";
-    String comando = "";
+    String validacion = "", validar_editar = "";
+    String comando = "", editar = "", establecer = "";
 
     public Menu() {
         initComponents();
@@ -49,6 +49,10 @@ public class Menu extends javax.swing.JFrame {
         jb_enviar_comandos = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jb_limpiar = new javax.swing.JButton();
+        jb_siguiente = new javax.swing.JButton();
+        jb_accion = new javax.swing.JButton();
+        jb_mostrar = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jb_registrar = new javax.swing.JButton();
         jb_login = new javax.swing.JButton();
@@ -194,7 +198,7 @@ public class Menu extends javax.swing.JFrame {
         ta_comandos.setRows(5);
         jScrollPane1.setViewportView(ta_comandos);
 
-        jDialog3.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 330, 110));
+        jDialog3.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 330, 80));
 
         ta_instrucciones.setEditable(false);
         ta_instrucciones.setColumns(20);
@@ -210,10 +214,10 @@ public class Menu extends javax.swing.JFrame {
                 jb_enviar_comandosMouseClicked(evt);
             }
         });
-        jDialog3.getContentPane().add(jb_enviar_comandos, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, -1, -1));
+        jDialog3.getContentPane().add(jb_enviar_comandos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, -1, -1));
 
         jLabel3.setText("Ingrese comando");
-        jDialog3.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+        jDialog3.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
 
         jb_limpiar.setText("Limpiar");
         jb_limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,7 +225,44 @@ public class Menu extends javax.swing.JFrame {
                 jb_limpiarMouseClicked(evt);
             }
         });
-        jDialog3.getContentPane().add(jb_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
+        jDialog3.getContentPane().add(jb_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
+
+        jb_siguiente.setText("Siguiente");
+        jb_siguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_siguienteMouseClicked(evt);
+            }
+        });
+        jDialog3.getContentPane().add(jb_siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, -1, -1));
+
+        jb_accion.setText("Accion Hecha!");
+        jb_accion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_accionMouseClicked(evt);
+            }
+        });
+        jDialog3.getContentPane().add(jb_accion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
+
+        jb_mostrar.setText("Mostrar");
+        jb_mostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_mostrarMouseClicked(evt);
+            }
+        });
+        jDialog3.getContentPane().add(jb_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, -1));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 660, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 540, Short.MAX_VALUE)
+        );
+
+        jDialog3.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 540));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -297,12 +338,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_log_inMouseClicked
 
     private void jb_registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_registerMouseClicked
-
         JOptionPane.showMessageDialog(this, "Registrado con exito!");
     }//GEN-LAST:event_jb_registerMouseClicked
 
     private void jb_enviar_comandosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_enviar_comandosMouseClicked
-        
+
         comando = ta_comandos.getText();
         try {
             switch (comando) {
@@ -312,7 +352,7 @@ public class Menu extends javax.swing.JFrame {
                     break;
                 case "atributos":
                     String tribute = ta_comandos.getText();
-                    validacion = "metodo";
+                    validacion = "atributos";
 
                     break;
                 case "metodo":
@@ -332,7 +372,87 @@ public class Menu extends javax.swing.JFrame {
 
     private void jb_limpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_limpiarMouseClicked
         ta_comandos.setText("");
+
     }//GEN-LAST:event_jb_limpiarMouseClicked
+
+    private void jb_siguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_siguienteMouseClicked
+        editar = ta_comandos.getText();
+        switch (validacion) {
+            case "clases":
+                switch (editar) {
+                    case "create":
+                        validar_editar = "create";
+                        break;
+                    case "modify":
+                        validar_editar = "modify";
+                        break;
+                    case "delete":
+                        validar_editar = "delete";
+                        break;
+                }
+                break;
+            case "atributos":
+                switch (editar) {
+                    case "create":
+                        validar_editar = "create";
+                        break;
+                    case "modify":
+                        validar_editar = "modify";
+                        break;
+                    case "delete":
+                        validar_editar = "delete";
+                        break;
+                }
+                break;
+            case "metodo":
+                switch (editar) {
+                    case "create":
+                        validar_editar = "create";
+                        break;
+                    case "modify":
+                        validar_editar = "modify";
+                        break;
+                    case "delete":
+                        validar_editar = "delete";
+                        break;
+                }
+                break;
+        }
+    }//GEN-LAST:event_jb_siguienteMouseClicked
+
+    private void jb_accionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_accionMouseClicked
+        establecer = ta_comandos.getText();
+        switch (validar_editar) {
+            case "create":
+                switch (validacion) {
+                    case "clases":
+                        arr.add(establecer);
+                        cl.setClase(establecer);
+                        break;
+                    case "atributos":
+                        atributo.add(establecer);
+                        cl.setAtributo(establecer);
+                        break;
+                    case "metodo":
+                        metodo.add(establecer);
+                        cl.setMetodo(establecer);
+                        break;
+                }
+
+                break;
+
+            case "modify":
+
+                break;
+            case "delete":
+
+                break;
+        }
+    }//GEN-LAST:event_jb_accionMouseClicked
+
+    private void jb_mostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_mostrarMouseClicked
+        JOptionPane.showMessageDialog(null, cl.toString());
+    }//GEN-LAST:event_jb_mostrarMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -378,14 +498,18 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton jb_accion;
     private javax.swing.JButton jb_enviar_comandos;
     private javax.swing.JButton jb_limpiar;
     private javax.swing.JButton jb_log_in;
     private javax.swing.JButton jb_login;
+    private javax.swing.JButton jb_mostrar;
     private javax.swing.JButton jb_register;
     private javax.swing.JButton jb_registrar;
+    private javax.swing.JButton jb_siguiente;
     private javax.swing.JLabel jl_apellido;
     private javax.swing.JLabel jl_correo;
     private javax.swing.JLabel jl_edad;
@@ -403,7 +527,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField tf_user_log;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
-ArrayList<Usuario> lista = new ArrayList<>();
+    ArrayList<Usuario> lista = new ArrayList<>();
     ArrayList<String> arr = new ArrayList<>();
     ArrayList<String> metodo = new ArrayList<>();
     ArrayList<String> atributo = new ArrayList<>();

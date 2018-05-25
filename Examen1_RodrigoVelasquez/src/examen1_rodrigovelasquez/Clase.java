@@ -40,7 +40,7 @@ public class Clase {
 
     @Override
     public String toString() {
-        return clase + " class{\n" + "  " + metodo+" "+ ", atributo=" + atributo  + '}';
+        return getClase() + " class{\n" + "  " + getAtributo()+" "+ "" + getMetodo()  + "\n}";
     }
    
     
