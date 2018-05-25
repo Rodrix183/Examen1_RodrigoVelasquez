@@ -43,9 +43,8 @@ public class Menu extends javax.swing.JFrame {
         ta_comandos = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         ta_instrucciones = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jb_enviar_comandos = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jb_registrar = new javax.swing.JButton();
         jb_login = new javax.swing.JButton();
@@ -191,7 +190,7 @@ public class Menu extends javax.swing.JFrame {
         ta_comandos.setRows(5);
         jScrollPane1.setViewportView(ta_comandos);
 
-        jDialog3.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 350, 298, 147));
+        jDialog3.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 220, 50));
 
         ta_instrucciones.setEditable(false);
         ta_instrucciones.setColumns(20);
@@ -199,22 +198,18 @@ public class Menu extends javax.swing.JFrame {
         ta_instrucciones.setText("Lista de comandos:\ncrear\nmodificar\neliminar\n\natributos\nmetodos\nclases\n\n\n");
         jScrollPane2.setViewportView(ta_instrucciones);
 
-        jDialog3.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
+        jDialog3.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 280, 210));
 
-        jButton1.setText("Guardar");
-        jDialog3.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 508, -1, -1));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3"
+        jb_enviar_comandos.setText("Guardar");
+        jb_enviar_comandos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_enviar_comandosMouseClicked(evt);
             }
-        ));
-        jScrollPane3.setViewportView(jTable1);
+        });
+        jDialog3.getContentPane().add(jb_enviar_comandos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, -1, -1));
 
-        jDialog3.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 43, -1, 150));
+        jLabel3.setText("Ingrese comando");
+        jDialog3.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -294,6 +289,22 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Registrado con exito!");
     }//GEN-LAST:event_jb_registerMouseClicked
 
+    private void jb_enviar_comandosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_enviar_comandosMouseClicked
+        String comando = ta_comandos.getText();
+        try {
+            switch (comando) {
+                case "crear":
+                    break;
+                case "modificar":
+                    break;
+                case "eliminar":
+                    break;
+            }
+        } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Comando incorrecto!");
+        }
+    }//GEN-LAST:event_jb_enviar_comandosMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -327,7 +338,6 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;
@@ -335,13 +345,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton jb_enviar_comandos;
     private javax.swing.JButton jb_log_in;
     private javax.swing.JButton jb_login;
     private javax.swing.JButton jb_register;
