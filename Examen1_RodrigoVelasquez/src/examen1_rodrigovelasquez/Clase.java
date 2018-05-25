@@ -3,7 +3,8 @@ package examen1_rodrigovelasquez;
 import java.util.ArrayList;
 
 public class Clase {
-   private String clase, atributo, metodo;
+
+    private String clase, atributo, metodo;
 
     public Clase() {
     }
@@ -40,8 +41,7 @@ public class Clase {
 
     @Override
     public String toString() {
-        return getClase() + " class{\n" + "  " + getAtributo()+" "+ "" + getMetodo()  + "\n}";
+        return getClase() + " class{\n" + "  " + getAtributo() + "\n    " + getMetodo() + "(){\n    }" + "\n}";
     }
-   
-    
+
 }

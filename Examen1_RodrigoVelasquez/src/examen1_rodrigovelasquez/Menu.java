@@ -428,6 +428,25 @@ public class Menu extends javax.swing.JFrame {
                     case "clases":
                         arr.add(establecer);
                         cl.setClase(establecer);
+                        JOptionPane.showMessageDialog(this, "Establecida clase"+establecer);
+                        break;
+                    case "atributos":
+                        atributo.add(establecer);
+                        cl.setAtributo(establecer);
+                        JOptionPane.showMessageDialog(this, "Establecido atributo"+establecer);
+                        break;
+                    case "metodo":
+                        metodo.add(establecer);
+                        cl.setMetodo(establecer);
+                        JOptionPane.showMessageDialog(this, "Establecido metodo"+establecer);
+                        break;
+                }
+                break;
+            case "modify":
+                switch (validacion) {
+                    case "clases":
+                        arr.add(establecer);
+                        cl.setClase(establecer);
                         break;
                     case "atributos":
                         atributo.add(establecer);
@@ -438,14 +457,25 @@ public class Menu extends javax.swing.JFrame {
                         cl.setMetodo(establecer);
                         break;
                 }
-
-                break;
-
-            case "modify":
-
                 break;
             case "delete":
-
+                switch (validacion) {
+                    case "clases":
+//                        arr.add(establecer);
+                        cl.setClase("");
+                        JOptionPane.showMessageDialog(this, "Borrada clase");
+                        break;
+                    case "atributos":
+//                        atributo.add(establecer);
+                        cl.setAtributo("");
+                        JOptionPane.showMessageDialog(this, "Borrado Atributo");
+                        break;
+                    case "metodo":
+//                        metodo.add(establecer);
+                        cl.setMetodo("");
+                        JOptionPane.showMessageDialog(this, "Borrado Metodo");
+                        break;
+                }
                 break;
         }
     }//GEN-LAST:event_jb_accionMouseClicked
