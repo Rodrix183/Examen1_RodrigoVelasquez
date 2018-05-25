@@ -263,7 +263,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="330" y="320" width="220" height="50"/>
+              <AbsoluteConstraints x="140" y="290" width="330" height="110"/>
             </Constraint>
           </Constraints>
 
@@ -291,10 +291,9 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="ta_instrucciones">
               <Properties>
-                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Lista de comandos:&#xa;crear&#xa;modificar&#xa;eliminar&#xa;&#xa;atributos&#xa;metodos&#xa;clases&#xa;&#xa;&#xa;"/>
+                <Property name="text" type="java.lang.String" value="Lista de comandos:&#xa;clases&#xa;atributos &#xa;metodos  &#xa;&#xa;create  &#xa;modify &#xa;delete "/>
               </Properties>
             </Component>
           </SubComponents>
@@ -308,7 +307,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="400" y="390" width="-1" height="-1"/>
+              <AbsoluteConstraints x="270" y="420" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -318,7 +317,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="330" y="300" width="-1" height="-1"/>
+              <AbsoluteConstraints x="140" y="270" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

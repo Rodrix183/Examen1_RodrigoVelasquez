@@ -190,12 +190,11 @@ public class Menu extends javax.swing.JFrame {
         ta_comandos.setRows(5);
         jScrollPane1.setViewportView(ta_comandos);
 
-        jDialog3.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 220, 50));
+        jDialog3.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 330, 110));
 
-        ta_instrucciones.setEditable(false);
         ta_instrucciones.setColumns(20);
         ta_instrucciones.setRows(5);
-        ta_instrucciones.setText("Lista de comandos:\ncrear\nmodificar\neliminar\n\natributos\nmetodos\nclases\n\n\n");
+        ta_instrucciones.setText("Lista de comandos:\nclases\natributos \nmetodos  \n\ncreate  \nmodify \ndelete ");
         jScrollPane2.setViewportView(ta_instrucciones);
 
         jDialog3.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 280, 210));
@@ -206,10 +205,10 @@ public class Menu extends javax.swing.JFrame {
                 jb_enviar_comandosMouseClicked(evt);
             }
         });
-        jDialog3.getContentPane().add(jb_enviar_comandos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, -1, -1));
+        jDialog3.getContentPane().add(jb_enviar_comandos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, -1, -1));
 
         jLabel3.setText("Ingrese comando");
-        jDialog3.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
+        jDialog3.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -293,15 +292,18 @@ public class Menu extends javax.swing.JFrame {
         String comando = ta_comandos.getText();
         try {
             switch (comando) {
-                case "crear":
+                case "clases":
+                    ta_comandos.setText("clases-");
                     break;
-                case "modificar":
+                case "atributos":
                     break;
                 case "eliminar":
                     break;
+                default:
+                    JOptionPane.showMessageDialog(this, "Comando incorrecto!");
             }
         } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Comando incorrecto!");
+            JOptionPane.showMessageDialog(this, "Comando incorrecto!");
         }
     }//GEN-LAST:event_jb_enviar_comandosMouseClicked
 
