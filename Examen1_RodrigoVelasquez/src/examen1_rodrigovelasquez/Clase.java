@@ -40,7 +40,7 @@ public class Clase {
 
     @Override
     public String toString() {
-        return "Clase{" + "clase=" + clase + ", atributo=" + atributo + ", metodo=" + metodo + '}';
+        return clase + " class{\n" + "  " + metodo+" "+ ", atributo=" + atributo  + '}';
     }
    
     

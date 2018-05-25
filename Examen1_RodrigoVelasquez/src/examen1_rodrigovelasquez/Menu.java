@@ -6,6 +6,9 @@ import javax.swing.JOptionPane;
 public class Menu extends javax.swing.JFrame {
 
     Usuario us = new Usuario();
+    Clase cl = new Clase();
+    String validacion = "";
+    String comando = "";
 
     public Menu() {
         initComponents();
@@ -45,6 +48,7 @@ public class Menu extends javax.swing.JFrame {
         ta_instrucciones = new javax.swing.JTextArea();
         jb_enviar_comandos = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jb_limpiar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jb_registrar = new javax.swing.JButton();
         jb_login = new javax.swing.JButton();
@@ -192,6 +196,7 @@ public class Menu extends javax.swing.JFrame {
 
         jDialog3.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 330, 110));
 
+        ta_instrucciones.setEditable(false);
         ta_instrucciones.setColumns(20);
         ta_instrucciones.setRows(5);
         ta_instrucciones.setText("Lista de comandos:\nclases\natributos \nmetodos  \n\ncreate  \nmodify \ndelete ");
@@ -205,10 +210,18 @@ public class Menu extends javax.swing.JFrame {
                 jb_enviar_comandosMouseClicked(evt);
             }
         });
-        jDialog3.getContentPane().add(jb_enviar_comandos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, -1, -1));
+        jDialog3.getContentPane().add(jb_enviar_comandos, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, -1, -1));
 
         jLabel3.setText("Ingrese comando");
         jDialog3.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+
+        jb_limpiar.setText("Limpiar");
+        jb_limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_limpiarMouseClicked(evt);
+            }
+        });
+        jDialog3.getContentPane().add(jb_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -289,23 +302,37 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_registerMouseClicked
 
     private void jb_enviar_comandosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_enviar_comandosMouseClicked
-        String comando = ta_comandos.getText();
+        
+        comando = ta_comandos.getText();
         try {
             switch (comando) {
                 case "clases":
-                    ta_comandos.setText("clases-");
+                    String clas = ta_comandos.getText();
+                    validacion = "clases";
                     break;
                 case "atributos":
+                    String tribute = ta_comandos.getText();
+                    validacion = "metodo";
+
                     break;
-                case "eliminar":
+                case "metodo":
+                    String method = ta_comandos.getText();
+                    validacion = "metodo";
+
                     break;
+
                 default:
                     JOptionPane.showMessageDialog(this, "Comando incorrecto!");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Comando incorrecto!");
         }
+
     }//GEN-LAST:event_jb_enviar_comandosMouseClicked
+
+    private void jb_limpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_limpiarMouseClicked
+        ta_comandos.setText("");
+    }//GEN-LAST:event_jb_limpiarMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -354,6 +381,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jb_enviar_comandos;
+    private javax.swing.JButton jb_limpiar;
     private javax.swing.JButton jb_log_in;
     private javax.swing.JButton jb_login;
     private javax.swing.JButton jb_register;
@@ -376,4 +404,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
 ArrayList<Usuario> lista = new ArrayList<>();
+    ArrayList<String> arr = new ArrayList<>();
+    ArrayList<String> metodo = new ArrayList<>();
+    ArrayList<String> atributo = new ArrayList<>();
 }
