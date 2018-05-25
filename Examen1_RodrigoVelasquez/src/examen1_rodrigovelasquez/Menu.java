@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 
 public class Menu extends javax.swing.JFrame {
 
+    Usuario us = new Usuario();
+
     public Menu() {
         initComponents();
     }
@@ -258,7 +260,11 @@ public class Menu extends javax.swing.JFrame {
         jDialog1.setModal(true);
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
-        Usuario us = new Usuario(tf_nombre.getText(), tf_edad.getText(), tf_correo.getText(), tf_usuario.getText(), tf_password.getText());
+        us.setNombre(tf_nombre.getText());
+        us.setEdad(tf_edad.getText());
+        us.setCorreo(tf_correo.getText());
+        us.setNombre_usuario(tf_usuario.getText());
+        us.setContrasena(tf_password.getText());
     }//GEN-LAST:event_jb_registrarMouseClicked
 
     private void jb_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_loginMouseClicked
@@ -271,13 +277,12 @@ public class Menu extends javax.swing.JFrame {
     private void jb_log_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_log_inMouseClicked
         String usuario_login = tf_user_log.getText();
         String contra_login = pf_contrasena_log.getText();
-        Usuario valid = new Usuario(tf_nombre.getText(), tf_edad.getText(), tf_correo.getText(), tf_usuario.getText(), tf_password.getText());
-        if (usuario_login.equals(valid.getNombre_usuario()) && contra_login.equals(valid.getContrasena())) {
+
+        if (usuario_login.equals(us.getNombre_usuario()) && contra_login.equals(us.getContrasena())) {
             jDialog3.pack();
             jDialog3.setModal(true);
             jDialog3.setLocationRelativeTo(this);
             jDialog3.setVisible(true);
-            JOptionPane.showMessageDialog(this, "HOLA BB");
         } else {
             JOptionPane.showMessageDialog(this, "Datos invalidos!");
         }
@@ -287,13 +292,6 @@ public class Menu extends javax.swing.JFrame {
     private void jb_registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_registerMouseClicked
 
         JOptionPane.showMessageDialog(this, "Registrado con exito!");
-//        lista.add();
-        tf_nombre.setText("");
-        tf_apellido.setText("");
-        tf_edad.setText("");
-        tf_correo.setText("");
-        tf_usuario.setText("");
-        tf_password.setText("");
     }//GEN-LAST:event_jb_registerMouseClicked
 
     public static void main(String args[]) {
