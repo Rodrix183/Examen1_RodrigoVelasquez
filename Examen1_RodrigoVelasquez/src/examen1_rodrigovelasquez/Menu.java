@@ -206,6 +206,7 @@ public class Menu extends javax.swing.JFrame {
         jDialog1.setModal(true);
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
+        Usuario us = new Usuario(tf_nombre.getText(), tf_edad.getText(), tf_correo.getText(), tf_usuario.getText(), tf_password.getText());
     }//GEN-LAST:event_jb_registrarMouseClicked
 
     private void jb_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_loginMouseClicked
@@ -215,7 +216,6 @@ public class Menu extends javax.swing.JFrame {
         jDialog2.setVisible(true);
     }//GEN-LAST:event_jb_loginMouseClicked
 
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
