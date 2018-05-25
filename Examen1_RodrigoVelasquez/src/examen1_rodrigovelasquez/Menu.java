@@ -36,6 +36,14 @@ public class Menu extends javax.swing.JFrame {
         tf_user_log = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jb_log_in = new javax.swing.JButton();
+        jDialog3 = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_comandos = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_instrucciones = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jb_registrar = new javax.swing.JButton();
         jb_login = new javax.swing.JButton();
@@ -175,6 +183,37 @@ public class Menu extends javax.swing.JFrame {
 
         jDialog2.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 270));
 
+        jDialog3.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ta_comandos.setColumns(20);
+        ta_comandos.setRows(5);
+        jScrollPane1.setViewportView(ta_comandos);
+
+        jDialog3.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 350, 298, 147));
+
+        ta_instrucciones.setEditable(false);
+        ta_instrucciones.setColumns(20);
+        ta_instrucciones.setRows(5);
+        ta_instrucciones.setText("Lista de comandos:\ncrear\nmodificar\neliminar\n\natributos\nmetodos\nclases\n\n\n");
+        jScrollPane2.setViewportView(ta_instrucciones);
+
+        jDialog3.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
+
+        jButton1.setText("Guardar");
+        jDialog3.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 508, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        jDialog3.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 43, -1, 150));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -219,7 +258,7 @@ public class Menu extends javax.swing.JFrame {
         jDialog1.setModal(true);
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
-
+        Usuario us = new Usuario(tf_nombre.getText(), tf_edad.getText(), tf_correo.getText(), tf_usuario.getText(), tf_password.getText());
     }//GEN-LAST:event_jb_registrarMouseClicked
 
     private void jb_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_loginMouseClicked
@@ -230,20 +269,25 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_loginMouseClicked
 
     private void jb_log_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_log_inMouseClicked
-        try {
-            if (tf_user_log.getText().equals(tf_usuario) && pf_contrasena_log.getText().equals(tf_password.getText())) {
-                JOptionPane.showMessageDialog(this, "HOLA BB");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Datos Erroneos! ");
+        String usuario_login = tf_user_log.getText();
+        String contra_login = pf_contrasena_log.getText();
+        Usuario valid = new Usuario(tf_nombre.getText(), tf_edad.getText(), tf_correo.getText(), tf_usuario.getText(), tf_password.getText());
+        if (usuario_login.equals(valid.getNombre_usuario()) && contra_login.equals(valid.getContrasena())) {
+            jDialog3.pack();
+            jDialog3.setModal(true);
+            jDialog3.setLocationRelativeTo(this);
+            jDialog3.setVisible(true);
+            JOptionPane.showMessageDialog(this, "HOLA BB");
+        } else {
+            JOptionPane.showMessageDialog(this, "Datos invalidos!");
         }
 
     }//GEN-LAST:event_jb_log_inMouseClicked
 
     private void jb_registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_registerMouseClicked
-        Usuario us = new Usuario(tf_nombre.getText(), tf_edad.getText(), tf_correo.getText(), tf_usuario.getText(), tf_password.getText());
+
         JOptionPane.showMessageDialog(this, "Registrado con exito!");
-        lista.add(us);
+//        lista.add();
         tf_nombre.setText("");
         tf_apellido.setText("");
         tf_edad.setText("");
@@ -285,8 +329,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
+    private javax.swing.JDialog jDialog3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -294,6 +340,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton jb_log_in;
     private javax.swing.JButton jb_login;
     private javax.swing.JButton jb_register;
@@ -305,6 +355,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jl_password;
     private javax.swing.JLabel jl_user;
     private javax.swing.JPasswordField pf_contrasena_log;
+    private javax.swing.JTextArea ta_comandos;
+    private javax.swing.JTextArea ta_instrucciones;
     private javax.swing.JTextField tf_apellido;
     private javax.swing.JTextField tf_correo;
     private javax.swing.JTextField tf_edad;
