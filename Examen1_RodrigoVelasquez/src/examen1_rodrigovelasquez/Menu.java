@@ -1,5 +1,8 @@
 package examen1_rodrigovelasquez;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 public class Menu extends javax.swing.JFrame {
 
     public Menu() {
@@ -24,10 +27,10 @@ public class Menu extends javax.swing.JFrame {
         tf_correo = new javax.swing.JTextField();
         tf_password = new javax.swing.JTextField();
         tf_edad = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jb_register = new javax.swing.JButton();
         jDialog2 = new javax.swing.JDialog();
         jLabel9 = new javax.swing.JLabel();
-        pf_contrasena = new javax.swing.JPasswordField();
+        pf_contrasena_log = new javax.swing.JPasswordField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         tf_user_log = new javax.swing.JTextField();
@@ -53,7 +56,12 @@ public class Menu extends javax.swing.JFrame {
 
         jl_edad.setText("Edad");
 
-        jButton1.setText("Registrar");
+        jb_register.setText("Registrar");
+        jb_register.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_registerMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -61,7 +69,7 @@ public class Menu extends javax.swing.JFrame {
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog1Layout.createSequentialGroup()
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(jb_register)
                     .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jDialog1Layout.createSequentialGroup()
                             .addContainerGap()
@@ -123,7 +131,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jl_edad)
                     .addComponent(tf_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jb_register)
                 .addGap(74, 74, 74))
         );
 
@@ -132,7 +140,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Log In");
         jDialog2.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 25, -1, -1));
-        jDialog2.getContentPane().add(pf_contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 180, -1));
+        jDialog2.getContentPane().add(pf_contrasena_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 180, -1));
 
         jLabel10.setText("Usuario");
         jDialog2.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
@@ -142,6 +150,11 @@ public class Menu extends javax.swing.JFrame {
         jDialog2.getContentPane().add(tf_user_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 180, -1));
 
         jb_log_in.setText("Iniciar Sesion");
+        jb_log_in.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_log_inMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -206,7 +219,7 @@ public class Menu extends javax.swing.JFrame {
         jDialog1.setModal(true);
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
-        Usuario us = new Usuario(tf_nombre.getText(), tf_edad.getText(), tf_correo.getText(), tf_usuario.getText(), tf_password.getText());
+
     }//GEN-LAST:event_jb_registrarMouseClicked
 
     private void jb_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_loginMouseClicked
@@ -215,6 +228,29 @@ public class Menu extends javax.swing.JFrame {
         jDialog2.setLocationRelativeTo(this);
         jDialog2.setVisible(true);
     }//GEN-LAST:event_jb_loginMouseClicked
+
+    private void jb_log_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_log_inMouseClicked
+        try {
+            if (tf_user_log.getText().equals(tf_usuario) && pf_contrasena_log.getText().equals(tf_password.getText())) {
+                JOptionPane.showMessageDialog(this, "HOLA BB");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Datos Erroneos! ");
+        }
+
+    }//GEN-LAST:event_jb_log_inMouseClicked
+
+    private void jb_registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_registerMouseClicked
+        Usuario us = new Usuario(tf_nombre.getText(), tf_edad.getText(), tf_correo.getText(), tf_usuario.getText(), tf_password.getText());
+        JOptionPane.showMessageDialog(this, "Registrado con exito!");
+        lista.add(us);
+        tf_nombre.setText("");
+        tf_apellido.setText("");
+        tf_edad.setText("");
+        tf_correo.setText("");
+        tf_usuario.setText("");
+        tf_password.setText("");
+    }//GEN-LAST:event_jb_registerMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -249,7 +285,6 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
@@ -261,6 +296,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jb_log_in;
     private javax.swing.JButton jb_login;
+    private javax.swing.JButton jb_register;
     private javax.swing.JButton jb_registrar;
     private javax.swing.JLabel jl_apellido;
     private javax.swing.JLabel jl_correo;
@@ -268,7 +304,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jl_nombre;
     private javax.swing.JLabel jl_password;
     private javax.swing.JLabel jl_user;
-    private javax.swing.JPasswordField pf_contrasena;
+    private javax.swing.JPasswordField pf_contrasena_log;
     private javax.swing.JTextField tf_apellido;
     private javax.swing.JTextField tf_correo;
     private javax.swing.JTextField tf_edad;
@@ -277,4 +313,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField tf_user_log;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
+ArrayList<Usuario> lista = new ArrayList<>();
 }
