@@ -199,7 +199,7 @@ public class Menu extends javax.swing.JFrame {
         ta_instrucciones.setText("Lista de comandos:\ncrear\nmodificar\neliminar\n\natributos\nmetodos\nclases\n\n\n");
         jScrollPane2.setViewportView(ta_instrucciones);
 
-        jDialog3.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
+        jDialog3.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
 
         jButton1.setText("Guardar");
         jDialog3.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 508, -1, -1));
@@ -302,7 +302,7 @@ public class Menu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows Classic".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
